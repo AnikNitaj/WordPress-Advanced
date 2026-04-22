@@ -14,36 +14,6 @@ Text Domain: personal-project
 Tags: e-commerce, custom-colors, custom-menu, custom-logo, featured-images, full-site-editing, block-patterns, responsive, accessibility-ready
 */
 
-/* Top Navigation */
-.top-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.top-nav .nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-.top-nav .nav-links li {
-    margin: 0 15px;
-}
-
-.top-nav .nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.top-nav .nav-links a:hover {
-    color: #007cba;
-}
-
 /* Hero Section */
 .hero-section {
     position: relative;
@@ -108,14 +78,49 @@ header {
     z-index: 100;
 }
 
-nav ul {
-    list-style: none;
+nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-nav ul li a {
+..logo {
+    max-width: 50px;
+    width: 100px;
+    flex: 0 0 auto;
+    padding-left: 10px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+nav ul,
+nav .nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav .nav-menu {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+nav ul li,
+nav .nav-menu li {
+    margin: 0;
+}
+
+nav ul li a,
+nav .nav-menu li a {
     text-decoration: none;
     color: #333;
     padding: 15px 20px;
@@ -123,7 +128,8 @@ nav ul li a {
     transition: background-color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav .nav-menu li a:hover {
     background-color: #f0f0f0;
 }
 
