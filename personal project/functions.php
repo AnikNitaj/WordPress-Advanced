@@ -45,6 +45,22 @@ function personal_project_create_shop_page() {
                 'post_type'    => 'page',
             ) );
         }
+
+        $about_page = get_page_by_path( 'about', OBJECT, 'page' );
+
+        if ( $about_page && 'trash' === $about_page->post_status ) {
+            wp_untrash_post( $about_page->ID );
+        }
+
+        if ( ! $about_page ) {
+            wp_insert_post( array(
+                'post_title'   => 'About',
+                'post_name'    => 'about',
+                'post_content' => 'Learn more about Porsche, its ambition, and the passion behind every model.',
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+            ) );
+        }
     }
 }
 add_action( 'init', 'personal_project_create_shop_page' );

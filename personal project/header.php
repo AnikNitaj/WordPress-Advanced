@@ -9,11 +9,6 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <?php if ( has_custom_logo() ) {
-                        the_custom_logo();
-                    } ?>
-                </div>
                 <?php
                 if ( has_nav_menu( 'primary' ) ) {
                     wp_nav_menu( array(
@@ -26,6 +21,7 @@
                     <ul class="nav-menu">
                         <li><a href="<?php echo home_url(); ?>">Home</a></li>
                         <li><a href="<?php echo get_permalink( get_page_by_path( 'shop' ) ); ?>">Shop</a></li>
+                        <li><a href="<?php echo get_permalink( get_page_by_path( 'about' ) ); ?>">About</a></li>
                     </ul>
                     <?php
                 }
