@@ -28,6 +28,27 @@ function personal_project_setup() {
 }
 add_action( 'after_setup_theme', 'personal_project_setup' );
 
+function personal_project_create_shop_page() {
+    if ( function_exists( 'get_page_by_path' ) ) {
+        $shop_page = get_page_by_path( 'shop', OBJECT, 'page' );
+
+        if ( $shop_page && 'trash' === $shop_page->post_status ) {
+            wp_untrash_post( $shop_page->ID );
+        }
+
+        if ( ! $shop_page ) {
+            wp_insert_post( array(
+                'post_title'   => 'Shop',
+                'post_name'    => 'shop',
+                'post_content' => 'Browse our shop below. Add products in the theme or build this page in WordPress.',
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+            ) );
+        }
+    }
+}
+add_action( 'init', 'personal_project_create_shop_page' );
+
 // Remove WordPress footer credit text
 remove_action( 'wp_footer', 'wp_admin_bar_render' );
 

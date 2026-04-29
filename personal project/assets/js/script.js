@@ -29,10 +29,13 @@ jQuery(document).ready(function($) {
     // Product filter functionality
     $('.filter-btn').on('click', function() {
         var filter = $(this).data('filter');
-        $('.product').hide();
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+
         if (filter === 'all') {
             $('.product').show();
         } else {
+            $('.product').hide();
             $('.product.' + filter).show();
         }
     });
